@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "*.json": "cpp",
+        "ostream": "cpp",
+        "cmath": "cpp",
+        "valarray": "cpp"
+    }
+}
