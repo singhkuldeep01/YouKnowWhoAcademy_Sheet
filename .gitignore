@@ -1,8 +1,9 @@
 # Competitive Programming Helper (CPH) files
 *.cph
 .cph/
-
+/.cph
 # VS Code files and folders
+/.vscode
 .vscode/
 .vscode/*
 !.vscode/settings.json

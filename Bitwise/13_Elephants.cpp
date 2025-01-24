@@ -11,35 +11,21 @@ int gcd(int a,int b){if(b==0)return a;else return gcd(b,a%b);}
 int lcm(int a,int b){return a*b/gcd(a,b);}
 int power(int b , int p , int m){if(p == 0) return 1;if(p == 1) return b;int res = power(b, p/2, m);if(p % 2 == 0) return (res * res) % m;else return (((res * res) % m) * b) % m;}
 
-int countDigits(int n){
-    int cnt = 0;
-    while(n){
-        cnt++;
-        n /= 10;
-    }
-    return cnt;
-}
 void solve() {
-    int n;
-    cin>>n;
-    int digits = countDigits(n);
-    digits--;
-    vector<int> ans;
+    string s;
+    cin>>s;
+    string ans = "";
     bool first = true;
-    for(int i = digits ; i >= 0 ; i--){
-        int num = n / pow(10,i);
-        num = num % 10;
-        if(num == 0 && first){
+    for(int i = 0 ; i < s.size() ; i++){
+        if(first && s[i] == '0'){
             first = false;
             continue;
         }
-        ans.push_back(num);
+        ans += s[i];
     }
-    n = 0;
-    for(auto ele : ans){
-        n = n*10 + ele;
-    }
-    cout<<n;
+    if(first) ans.pop_back();
+    cout<<ans<<endl;
+
 }
 
 int32_t main()
