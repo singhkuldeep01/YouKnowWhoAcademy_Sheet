@@ -1,13 +1,17 @@
-# Competitive Programming Helper (CPH) files
-*.cph
+# Competitive Programming Helper files
 .cph/
-/.cph
-# VS Code files and folders
-/.vscode
+**/.cph/
+*.cph
+
+# VS Code directories and files
 .vscode/
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
+**/.vscode/
+
+# Keeping specific VS Code config files
+!**/.vscode/settings.json
+!**/.vscode/tasks.json
+!**/.vscode/launch.json
+!**/.vscode/extensions.json
+
+# VS Code workspace files
 *.code-workspace
