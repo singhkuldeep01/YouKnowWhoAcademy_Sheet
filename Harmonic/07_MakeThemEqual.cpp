@@ -10,25 +10,31 @@ int power(int b , int p , int m){if(p == 0) return 1;if(p == 1) return b;int res
 void solve() {
     int n;
     cin>>n;
+    char ch;
+    cin>>ch;
     string s;
     cin>>s;
-    vector<int> divisors(n+1, 0);
-    int ans = 0;
-    for(int i = 1; i <= n ; i++){
-        if(s[i-1] == '0'){
-            for(int j = i ; j <= n ; j += i){
-                if(s[j-1] == '0'){
-                    if(divisors[j] == 0){
-                        divisors[j] = 1;
-                        ans += i;
-                    }
-                }
-                else break;
-            }
+    bool flag = true;
+    for(int i = 0 ; i < n ; i++){
+        if(s[i] != ch) flag = false;
+    }
+    if(flag){
+        cout<<0<<endl;
+        return;
+    }
+    for(int i = 2 ; i <= n;i++){
+        flag = true;
+        for(int j = i ;j <= n ;j+=i){
+            if(s[j-1] != ch) flag = false;
+        }
+        if(flag){
+            cout<<1<<endl;
+            cout<<i<<endl;
+            return;
         }
     }
-    // int ans = accumulate(divisors.begin(), divisors.end() , 0LL);
-    cout<<ans<<endl;
+    cout<<2<<endl;
+    cout<<n-1<<" "<<n<<endl;
 }
 
 int32_t main()

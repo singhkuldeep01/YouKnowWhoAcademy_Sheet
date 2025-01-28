@@ -1,3 +1,6 @@
+//  I have solved this problem in 1 Go :) 
+
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -10,25 +13,21 @@ int power(int b , int p , int m){if(p == 0) return 1;if(p == 1) return b;int res
 void solve() {
     int n;
     cin>>n;
-    string s;
-    cin>>s;
-    vector<int> divisors(n+1, 0);
-    int ans = 0;
-    for(int i = 1; i <= n ; i++){
-        if(s[i-1] == '0'){
-            for(int j = i ; j <= n ; j += i){
-                if(s[j-1] == '0'){
-                    if(divisors[j] == 0){
-                        divisors[j] = 1;
-                        ans += i;
-                    }
-                }
-                else break;
+    vector<int> vec(n);
+    for(int i = 0 ; i < n ; i++){
+        cin>>vec[i];
+    }
+    vector<int> prev(n , 0);
+    for(int i = n ; i >= 1; i--){
+        int cnt = 0;
+        for(int j = i ; j <= n ; j += i){
+            if(vec[j-1] > vec[i-1]){
+                cnt =  max(cnt , 1 + prev[j-1]);
             }
         }
+        prev[i-1] = cnt;
     }
-    // int ans = accumulate(divisors.begin(), divisors.end() , 0LL);
-    cout<<ans<<endl;
+    cout<<*max_element(prev.begin(), prev.end()) + 1<<endl;
 }
 
 int32_t main()
